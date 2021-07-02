@@ -11,8 +11,11 @@ const Register = () => {
     const dispatch = useDispatch();
     //Using a Custom Hook to validate the form.
     const {handleChange, values, handleSubmit, errors, isSubmitted} = useForm(validate);
-
     const history = useHistory();
+
+    useEffect(()=> {
+
+    }, [])
 
     function navigation(e) {
         //Redirect the user another page.
@@ -21,19 +24,36 @@ const Register = () => {
 
     const dbcall = async () => {
         const data = await axios.post("http://localhost:8093/api/v1/user", values).then(
-            (data) => {console.log(data)}
+            (data) => {
+                console.log(data);
+            }
         ). catch (
             (error)=> {
                 console.log(error.message);
             }
-
         );
         return data;
     }
 
     if(isSubmitted){
-        console.log("Calling DB")
+        //Testing Header.
+        console.log("DB Method Triggering")
+
+        //Database Method Calling Method.
+        if(Object.keys(errors).length === 0){
             dbcall();
+        }
+
+        //Redirection Logic
+        if(Object.keys(errors).length !== 0){
+            setTimeout(() => { window.location.href='/register'; }, 6000);
+            console.log("Redirect to Register");
+
+        } else {
+            setTimeout(() => { navigation() }, 6000);
+            console.log("Redirect to Login");
+        }
+
     }
 
     /**

@@ -44,6 +44,7 @@ function UserDetailTable({method, isSubmit, isSubmitted}) {
                 .catch((error) => {
                     console.log("Error", error);
                 });
+            console.log(response)
             setuserData(response.data)
 
         } catch (err) {

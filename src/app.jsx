@@ -31,7 +31,7 @@ const App = () => {
                     <Route path = "/loginpage" component={LoginPage}/>
                     <ProtectedRoute exact path = "/services" component={TestingEmptyComponent}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
-                    <Route path = "/payment" component={PaymentPage}/>
+                    <Route path = "/payment/:value" component={PaymentPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
 
                     <Route exact path  = "/admin" component={AdminPage}/>

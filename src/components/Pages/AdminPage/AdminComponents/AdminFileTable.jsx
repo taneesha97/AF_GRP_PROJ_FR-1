@@ -69,7 +69,7 @@ function AdminFileTable() {
     return (
         <div>
             <TableContainer component={Paper} className="editorcontent" >
-                <h1>Editor Content Table</h1>
+                <h1>Admin File Table</h1>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>

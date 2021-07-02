@@ -48,7 +48,8 @@ const Login = () => {
             }
             dispatch(loginUser(user));
             localStorage.setItem('userName', user.userName);
-            //Auth.login(decode.sub, data.jwt, decode.userType);
+           //Navigate the User to the Home Page.
+            Navigate();
 
 
         } catch (err) {
@@ -58,7 +59,7 @@ const Login = () => {
     }
 
     function Navigate() {
-        history.push("/register");
+        history.push("/");
     }
 
     return (
