@@ -12,7 +12,7 @@ import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/Downl
 import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
 import AdminPage from './components/Pages/AdminPage/AdminPage';
 import {ProtectedRoute} from "./components/Login/ProtectedRoutes/protectedRoute";
-
+import EventDes from "./components/Pages/Event/EventDes/EventDes";
 import TestingEmptyComponent from "./components/TestingEmptyComponent/ProtectedEmptyComponent";
 import EventMainPage from "./components/Pages/EventPage/EventMainPage";
 import FeedBackAllPage from "./components/Pages/FeedBackPage/FeedBackAllPage";
@@ -41,6 +41,7 @@ const App = () => {
                     <Route path = "/admin" component={AdminPage}/>
                     <Route path = "/allFeedbackPage" component={FeedBackAllPage}/>
                     <Route path = "/payment" component={FeedBackAllPage}/>
+                    <Route path = "/eventpage/:value" component={EventDes}/>
                     <Route path = "/allKeySpeakerPage" component={KeySpeakerAllPage}/>
                     <Route path = "/adminlogin" component={AdminLoginPage}/>
 

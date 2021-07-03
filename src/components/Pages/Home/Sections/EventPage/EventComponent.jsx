@@ -3,10 +3,10 @@ import '../../../../../CSS/event.scss';
 import {useHistory} from "react-router-dom";
 function EventComponent({rows}) {
     const history = useHistory();
-    const event = rows.eventName;
-    console.log(rows.eventName)
+    const event = rows.id;
+    console.log(rows)
     const onClick = () => {
-        history.push('/payment/' + event);
+        history.push('/eventpage/' + event);
     }
     return (
         <div>

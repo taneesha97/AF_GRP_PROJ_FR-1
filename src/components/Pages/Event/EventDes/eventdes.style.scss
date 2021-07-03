@@ -1,0 +1,28 @@
+.event-detail-con{
+  text-align: center;
+  align-items: center;
+  color: white;
+
+  img{
+    width: 80%;
+  }
+  h1{
+    font-size: x-large;
+    margin: 20px;
+  }
+  h2{
+    font-size: large;
+    margin: 20px;
+  }
+  h3{
+    font-size: large;
+    margin: 10px;
+  }
+  .event-details-down{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  hr{
+    border: 2px solid white;
+  }
+}

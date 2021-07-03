@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom';
 import {Button} from "../Button/Button";
 import './Navbar.css'
-import EventPage from "../Pages/Home/Sections/EventPage/EventPage";
-import AdminPage from '../Pages/AdminPage/AdminPage';
-import Auth from '../Login/ProtectedRoutes/AuthenticationClass';
 import {useDispatch} from "react-redux";
 import {logoutUser} from "../../actions/users";
-import DownloadLinkPage from "../Pages/Home/Sections/DownloadPage/DownloadLinkPage";
 
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -71,9 +67,13 @@ function Navbar () {
                             <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTRATION
                             </Link>
+
                         </li>
                     </ul>
                     { button  && <Button onClick={() => logout()} buttonStyle= "btn--outline"> LOG OUT </Button>}
+                    <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>
+                        ADMIN
+                    </Link>
                 </div>
             </nav>
         </React.Fragment>

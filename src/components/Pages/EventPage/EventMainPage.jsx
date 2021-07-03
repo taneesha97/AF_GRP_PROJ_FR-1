@@ -5,17 +5,24 @@ import {useSelector} from "react-redux";
 import EventComponent from "../Home/Sections/EventPage/EventComponent";
 import event1 from "../../../Images/EventImages/screen6.jpg";
 import axios from "axios";
+import {useHistory} from "react-router";
 
 const EventMainPage = () => {
+
+    const history = useHistory();
 
     //Use States.
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [data, setData] = useState([]);
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userName === null){
-            window.location.href='/loginpage';
+            navigation();
         } else {
             setFlag(true);
         }
@@ -24,10 +31,12 @@ const EventMainPage = () => {
     }, [])
 
 
+
+
     const fetchDownloadCategoryDetails1 = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/events")
+                .get("https://application-framework-database.herokuapp.com/api/v1/events")
                 .catch((error) => {
                     console.log("Error", error);
                 });

@@ -53,7 +53,7 @@ function EditorContentTable({isSubmit, isSubmitted}) {
     const fetchEventDetails = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/events")
+                .get("http://application-framework-database.herokuapp.com/api/v1/events")
             seteventData(response.data)
                 .catch((error) => {
                     console.log("Error", error);
@@ -77,7 +77,7 @@ function EditorContentTable({isSubmit, isSubmitted}) {
             status
         }
         console.log(eventData)
-        axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+        axios.put('https://application-framework-database.herokuapp.com/api/v1/updateEvent/'+id, eventData).then(() => {
             isSubmitted(true)
             alert("event updated");
             isSubmitted(false)
@@ -94,7 +94,7 @@ function EditorContentTable({isSubmit, isSubmitted}) {
             status
         }
         console.log(eventData)
-        axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+        axios.put('https://application-framework-database.herokuapp.com/v1/updateEvent/'+id, eventData).then(() => {
             isSubmitted(true)
             alert("event updated");
             isSubmitted(false)

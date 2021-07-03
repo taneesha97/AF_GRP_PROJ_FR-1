@@ -32,7 +32,7 @@ const AdminLogin = () => {
     const login = async () => {
         try {
 
-            const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
+            const {data} = await axios.post("https://application-framework-database.herokuapp.com/api/v1/validate", userData);
             setToken(data.jwt);
             //Decode the JWT and get User type.
             const decode = jwt(data.jwt);

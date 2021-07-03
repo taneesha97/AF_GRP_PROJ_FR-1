@@ -21,9 +21,11 @@ const EventPage = () => {
 
     const fetchEventDetails = async () => {
         try {
+
             const response = await axios
-                .get("http://localhost:8093/api/v1/events")
+                .get("https://application-framework-database.herokuapp.com/api/v1/events")//https://application-framework-database.herokuapp.com/api/v1/events
                 .catch((error) => {
+                    console.log(error);
                 });
             setData(response.data);
             console.log(response.data);

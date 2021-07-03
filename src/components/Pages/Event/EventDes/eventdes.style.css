@@ -1,0 +1,29 @@
+.event-detail-con {
+  text-align: center;
+  align-items: center;
+  color: white;
+}
+.event-detail-con img {
+  width: 80%;
+}
+.event-detail-con h1 {
+  font-size: x-large;
+  margin: 20px;
+}
+.event-detail-con h2 {
+  font-size: large;
+  margin: 20px;
+}
+.event-detail-con h3 {
+  font-size: large;
+  margin: 10px;
+}
+.event-detail-con .event-details-down {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.event-detail-con hr {
+  border: 2px solid white;
+}
+
+/*# sourceMappingURL=eventdes.style.css.map */

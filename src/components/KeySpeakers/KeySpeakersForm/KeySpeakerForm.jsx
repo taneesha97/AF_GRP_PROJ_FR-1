@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import FileBase from 'react-file-base64';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -28,6 +29,8 @@ const useStyle = makeStyles(theme => ({
 
 function FeedBackForm({isSubmitted}){
 
+    const history = useHistory();
+
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();
@@ -48,9 +51,13 @@ function FeedBackForm({isSubmitted}){
         }
     )
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userType === "uu"){
-            window.location.href='/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }
@@ -69,7 +76,7 @@ function FeedBackForm({isSubmitted}){
             qualifications
         }
         console.log(data)
-        axios.post('http://localhost:8093/api/v1/keyspeaker', data).then(() => {
+        axios.post('https://application-framework-database.herokuapp.com/api/v1/keyspeaker', data).then(() => {
             isSubmitted(true);
             alert("Data added");
             isSubmitted(false);

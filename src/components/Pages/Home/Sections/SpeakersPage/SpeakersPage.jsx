@@ -18,7 +18,7 @@ function SpeakersPage() {
     const fetchKeySpeakerDetails2 = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/keyspeakers")
+                .get("https://application-framework-database.herokuapp.com/api/v1/keyspeakers")
                 .catch((error) => {
                     console.log("Error", error);
                 });

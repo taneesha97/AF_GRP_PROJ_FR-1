@@ -6,6 +6,11 @@
     align-items: normal;
     grid-gap: 10%;
     width: 1520px;
+    .admin-header{
+        width: 100%;
+        margin-top: 50px;
+        margin-left: 170px;
+    }
 }
 .admin__row1{
     display: grid;
@@ -22,7 +27,7 @@
 
 .admin__container{
     width: 1520px;
-    background-color: #4FBCB9;
+    background-color: #9ed9fa;
 }
 
 .AdminStatistics{
@@ -40,5 +45,5 @@
 .userdetailtable{
     margin-top: 1%;
 
-
 }
+

@@ -40,7 +40,7 @@ function UserDetailTable({method, isSubmit, isSubmitted}) {
     const fetchUserDetails = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/users")
+                .get("https://application-framework-database.herokuapp.com/api/v1/users")
                 .catch((error) => {
                     console.log("Error", error);
                 });
@@ -63,17 +63,8 @@ function UserDetailTable({method, isSubmit, isSubmitted}) {
     }
     const deleteUser = (id) => {
         console.log(id);
-        /**
-         *  axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
-            //window.location.href('/admin');
-            isSubmitted(true)
-            alert("user updated");
-            isSubmitted(false)
-        }).catch((err) => {
-            console.log(err);
-        })
-         */
-        axios.delete('http://localhost:8093/api/v1/deleteUser/'+id).then(res => {
+
+        axios.delete('https://application-framework-database.herokuapp.com/api/v1/deleteUser/'+id).then(res => {
             isSubmitted(true)
             alert("user deleted");
             isSubmitted(false)

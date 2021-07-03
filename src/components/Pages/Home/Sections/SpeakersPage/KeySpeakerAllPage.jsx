@@ -5,11 +5,13 @@ import KeySpeakerForm from "../../../../KeySpeakers/KeySpeakersForm/KeySpeakerFo
 import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
 import axios from "axios";
 import {Container, TextField, Typography} from "@material-ui/core";
+import {useHistory} from "react-router";
 
 
 function KeySpeakerAllPage() {
 
     const [keySpeakerData, setKeySpeakerData] = useState([]);
+    const history = useHistory();
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [isSubmited, setIsSubmitted] = useState(false);
@@ -17,7 +19,7 @@ function KeySpeakerAllPage() {
     const fetchKeySpeakerDetails = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/keyspeakers")
+                .get("https://application-framework-database.herokuapp.com/api/v1/keyspeakers")
                 .catch((error) => {
                     console.log("Error", error);
                 });
@@ -34,9 +36,14 @@ function KeySpeakerAllPage() {
     }, [isSubmited])
 
     //Add this to protected Components to avoid unauthorized users from comming
+
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userName === null){
-            window.location.href='/loginpage';
+           navigation()
         } else {
             setFlag(true);
         }

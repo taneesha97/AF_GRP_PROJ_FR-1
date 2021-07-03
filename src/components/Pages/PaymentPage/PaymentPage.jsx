@@ -4,6 +4,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import axios from "axios";
 import {useSelector} from "react-redux";
 import emailjs from 'emailjs-com';
+import {useHistory} from "react-router";
 
 
 const PaymentPage = (props) => {
@@ -18,6 +19,7 @@ const PaymentPage = (props) => {
     const [flag, setFlag] = useState(null)
     const [tokenKey, setTokenKey] = useState("");
     const [paymentResponse, setPaymentResponse] = useState(null);
+    const history = useHistory();
 
     //Creating  Authorization Header for Axios Requests
     axios.interceptors.request.use(
@@ -30,10 +32,14 @@ const PaymentPage = (props) => {
         }
     )
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     //Constructor - Validate the approaching user.
     useEffect(() => {
         if (users.userName === null) {
-            window.location.href = '/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }
@@ -49,7 +55,7 @@ const PaymentPage = (props) => {
     const saveTheTransaction = async (body) => {
         console.log(body.id);
         setTokenKey(body.id)
-        await axios.post("http://localhost:8093/api/v1/charge", "", {
+        await axios.post("https://application-framework-database.herokuapp.com/api/v1/charge", "", {
             headers: {
                 token: body.id,
                 amount: 50,
@@ -144,7 +150,7 @@ const PaymentPage = (props) => {
                         </div>
                     </div>
                     <br/>
-                    <button id="PayButton" className="btn btn-block btn-success submit-button" type="submit">
+                    <button id="PayButton" className="btn btn-block btn-success submit-button" type="button">
                         <span className="submit-button-lock"></span>
                         <span className="align-middle">Pay {price}</span>
                     </button>

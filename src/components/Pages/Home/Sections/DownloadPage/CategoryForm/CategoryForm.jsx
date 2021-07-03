@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
 import axios from "axios";
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -34,6 +35,7 @@ const CategoryForm = ({isSubmitted}) => {
     const [flag, setFlag] = useState(null)
     const[downloadHeader, setCategory] = useState("");
     const[downloadDescription, setDescription] = useState("");
+    const history = useHistory();
 
     axios.interceptors.request.use(
         config => {
@@ -45,9 +47,13 @@ const CategoryForm = ({isSubmitted}) => {
         }
     )
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userType === "uu"){
-            window.location.href='/loginpage';
+            navigation();
         } else {
             setFlag(true);
         }
@@ -65,7 +71,7 @@ const CategoryForm = ({isSubmitted}) => {
         }
 
         console.log(data)
-        axios.post('http://localhost:8093/api/v1/download/category', data).then(() => {
+        axios.post('https://application-framework-database.herokuapp.com/api/v1/download/category', data).then(() => {
             isSubmitted(true);
             alert("Data added");
             isSubmitted(false);

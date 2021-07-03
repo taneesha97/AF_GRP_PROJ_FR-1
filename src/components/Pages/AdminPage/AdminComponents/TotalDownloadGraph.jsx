@@ -8,7 +8,6 @@ import {
   Title,
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
-import axios from "axios";
 
 
 function TotalDownloadGraph() {

@@ -5,9 +5,11 @@ import FileBase from 'react-file-base64';
 
 import axios from "axios";
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router";
 
 
 const  AddEvent = () =>{
+    const history = useHistory();
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [eventType , setEventType] = useState("");
@@ -33,9 +35,13 @@ const  AddEvent = () =>{
         }
     )
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userType === "uu"){
-            window.location.href='/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }
@@ -62,7 +68,7 @@ const  AddEvent = () =>{
             image
         }
         console.log(data)
-        axios.post('http://localhost:8093/api/v1/event', data).then(() => {
+        axios.post('https://application-framework-database.herokuapp.com/api/v1/event', data).then(() => {
         }).catch((err) => {
             console.log(err);
             alert("event data not inserted");
